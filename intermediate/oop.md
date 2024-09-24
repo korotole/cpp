@@ -89,5 +89,6 @@ When a subclass **declares a method of the name previously known in its supercla
 **Polymorphism** - ***a method to redefine the behaviour of a superclass without touching its implementation***
 - declare a method as `virtual`
 - **the binding between the original functions and their polymorphic implementations is established when the subclass object is created**, not sooner
-
-
+- `dynamic_cast<PTR*>()` -> returns NULL if cast is impossible
+- `dynamic_cast<PTR*>()` requires a method to be overriden, to be declared as `virtual`
+- `try {;} catch (...) {;}` -> safer way of doing dynamic casts
