@@ -9,6 +9,7 @@
 - is a being belonging to the class
 - *name*, *properties*, *abilities*
 - each new class constitutes a new type of data
+- building a class is called a **composition**
 
 **Access specifiers**:
 - `public` accessible to all users of a class
@@ -92,3 +93,7 @@ When a subclass **declares a method of the name previously known in its supercla
 - `dynamic_cast<PTR*>()` -> returns NULL if cast is impossible
 - `dynamic_cast<PTR*>()` requires a method to be overriden, to be declared as `virtual`
 - `try {;} catch (...) {;}` -> safer way of doing dynamic casts
+
+## Copy Constructor
+- The **implicit copy constructor** simply **clones** (bit by bit) the source object.
+- If objects are nested (one inside another), takes sub-copy-constructors into consideration (only if *implicit* copy constructor)
