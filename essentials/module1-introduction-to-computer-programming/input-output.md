@@ -29,3 +29,4 @@ Output streams are **able to recognize the type of the printed value**.
 - converting the data into the internal (machine) representation of the value being input.
 - `std::cin >> max_sheep;`
 - a **need explicitly specify the variable** that can store the data entered by the user.
+-  *if there is no data in the input stream or the data is invalid, the cin stream returns a null reference (reference to itself elsewise)*

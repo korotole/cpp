@@ -87,6 +87,8 @@ Static variables have to be defined outside of the class body: `int Class::Count
 When a subclass **declares a method of the name previously known in its superclass, the original method is overridden** -> the subclass hides the previous meaning of the method identifier and any invocation encoded within the subclass will refer to the newer method.
 - *uppercasting* & *downcasting*
 
+*Composition* -> building a class
+
 **Polymorphism** - ***a method to redefine the behaviour of a superclass without touching its implementation***
 - declare a method as `virtual`
 - **the binding between the original functions and their polymorphic implementations is established when the subclass object is created**, not sooner
@@ -97,3 +99,36 @@ When a subclass **declares a method of the name previously known in its supercla
 ## Copy Constructor
 - The **implicit copy constructor** simply **clones** (bit by bit) the source object.
 - If objects are nested (one inside another), takes sub-copy-constructors into consideration (only if *implicit* copy constructor)
+- Expects one parameter to be a reference to an object
+- To hide / disable: place under private
+- The copying constructor takes into consideration all the existing copying constructors (implicit and explicit) defined within the objects used to compose the class. 
+
+## Constant keyword
+- *read-only* variables, protected by a compiler against modification
+- must be declared as already initialized
+- usually it may not be possible to treat parts of constant *aggregates* (arrays, structs, etc.) as literals
+- **`int * const iptr = arr + 2;`** (*Constant pointers*)
+  - the entities pointed to by the const pointers may be modified with no restrictions, the pointer itself - not
+- **`const int *iptr = arr + 2;`** (*Pointers to constants*)
+  - pointer can be modified, the pointed values - not
+- **`const int * const iptr = arr + 2;`** (*Constant pointers to constants*)
+  - NOTHING can be modified
+  
+*Constant member function* -> a promise that the function won’t modify the state of the object
+
+## Friends
+- *friend* class OR function
+- friends are allowed to access or to use private and protected components of the class
+- **`friend class ... ;`** (friendship declaration) -> may exist inside any of the class parts (public, private or protected), but must be placed outside any function or aggregate
+- rules:
+  - a class may be a friend of many classes
+  - a class may have many friends
+  - a friend’s friend isn’t my friend
+  - friendship isn’t inherited – the subclass has to define its own friendships
+
+- rules:
+  - a friendship declaration must contain a complete prototype of the friend function (including return type);
+  - a function with the same name, but incompatible in the sense of the parameters’ conformance, will not be recognized as a friend
+  - a class may have many friend functions
+  - a function may be a friend of many classes
+  - a class may recognize as friends both global and member functions

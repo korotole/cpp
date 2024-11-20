@@ -84,5 +84,9 @@ int main(void)
     static_cast<Cat *>(a_pet1)->MakeSound();
     a_pet2->Run();
     static_cast<Dog *>(a_pet2)->MakeSound();
+ 
+    int arr[5] = {1, 2, 4, 8, 16};
+    const int * const iptr = arr + 2;
+
     return 0;
 }
